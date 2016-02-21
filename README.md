@@ -3,7 +3,7 @@
 
 Twitter is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **5** hours spent in total
+Time spent: **7** hours spent in total
 
 ## User Stories
 
@@ -27,14 +27,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. The videos from the assignment are HORRIBLE! I spent most of my time figuring out how to actually do modify the code given to us :(
+1. I got completely lost after I finished all the videos, I was not able to figure out how to do the required options, I got behind in the class and was completly lost at this point, I know is my fault and I should try to keep up as much as possible. I had a rough week so I will try to figure the rest of the assignment next week, sorry for the awful submission. 
 2. 
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://imgur.com/t2dTuxj' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
