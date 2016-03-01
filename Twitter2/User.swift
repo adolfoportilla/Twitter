@@ -10,11 +10,11 @@ import UIKit
 
 class User: NSObject {
     
-    var name: NSString?
-    var screenname: NSString?
+    var name: String?
+    var screenname: String?
     var profileUrl: NSURL?
-    var tagline: NSString?
-    
+    //var profileUrl: String?
+    var tagline: String?
     var dictionary: NSDictionary
     
     //deseralization, models take deseralization
@@ -22,7 +22,9 @@ class User: NSObject {
         self.dictionary = dictionary
         
         name = dictionary["name"] as? String
-        screenname = dictionary["screenname"] as? String
+        screenname = dictionary["screen_name"] as? String
+        
+        //profileUrl = dictionary["profile_image_url"] as? String
         
         let profileUrlString = dictionary["profile_image_url_https"] as? String
         

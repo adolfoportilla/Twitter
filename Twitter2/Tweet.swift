@@ -10,26 +10,37 @@ import UIKit
 
 class Tweet: NSObject {
     
-    
-    var text: NSString?
+    var user: User?
+    var text: String?
     var timestamp: NSDate?
+    var likeCount: Int = 0
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
+    var isRetweeted: Bool?
+    var isLiked: Bool?
+    var id: String?
+    
+    
     
     init(dictionary:NSDictionary) {
-        text = dictionary["text"] as? String
         
+        user = User(dictionary: dictionary["user"] as! NSDictionary)
+        
+        text = dictionary["text"] as? String
+        likeCount = dictionary["favorite_count"] as? Int ?? 0
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
         favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        isRetweeted = dictionary["retweeted"] as? Bool
+        isLiked = dictionary["favorited"] as? Bool
+        id = String(dictionary["id"]!)
         
         let timestampString = dictionary["created_at"] as? String
         
         if let timestampString = timestampString {
             
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEE MMM d HH:mm::ss Z y"   //to get the date from the dictionary, it is weir ho it is written
+            formatter.dateFormat = "EEE MMM d HH:mm::ss Z y"   //to get the date from the dictionary, it is weird how it is written
             timestamp = formatter.dateFromString(timestampString)
-            
         }
     }
     

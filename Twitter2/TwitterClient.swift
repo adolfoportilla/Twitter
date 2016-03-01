@@ -70,6 +70,12 @@ class TwitterClient: BDBOAuth1SessionManager {
             let dictionaries = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries)
             
+            /*
+            for tweet in tweets {
+                print(tweet.text)
+            }
+            */
+            
             success(tweets)
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error)
@@ -87,16 +93,44 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             success(user)
             
-            //print("name: \(user.name)")
-            //print("screenname: \(user.screenname)")
-            //print("profile url  : \(user.profileUrl)")
-            //print("description: \(user.tagline)")
+            
             
             }, failure: { (task: NSURLSessionDataTask?, error:NSError) -> Void in
                 failure(error)
                 
         })
+    }
     
+    func retweet(id: String) {
+        POST("1.1/statuses/retweet/\(id).json", parameters: nil, progress: { (progress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+                
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                
+        })
+    }
+    
+    func unretweet(id: String) {
+        POST("1.1/statuses/unretweet/\(id).json", parameters: nil, progress: { (progress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+                
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                
+        })
+    }
+    
+    func like(id: String) {
+        POST("1.1/favorites/create.json?id=\(id)", parameters: nil, progress: { (progress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+        })
+    }
+    
+    func unlike(id: String) {
+        POST("1.1/favorites/destroy.json?id=\(id)", parameters: nil, progress: { (progress) -> Void in
+            }, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+        })
     }
     
     
